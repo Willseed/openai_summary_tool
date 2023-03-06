@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "chatgpt-audio-to-text"
+version = "0.1.0"
+description = ""
+authors = ["Willseed <willseed.tw@icloud.com>"]
+readme = "README.md"
+packages = [{include = "chatgpt_audio_to_text"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^0.27.0"
+pydub = "^0.25.1"
+yt-dlp = "^2023.3.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
