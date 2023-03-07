@@ -12,11 +12,14 @@ class Download:
             'format': 'bestaudio/best',
             'outtmpl': self.filename,
             'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-                'preferredquality': '192',
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': 'bestaudio',
             }],
+            'audio-format': 'mp3',
+            'audio-quality': 'bestaudio'
         }
+
         # 建立 yt_dlp 下載器物件
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([self.url])
