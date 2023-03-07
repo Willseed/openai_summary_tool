@@ -1,5 +1,7 @@
 # Text summarization tool
 
+> [正體中文版請點我](./README_zh-TW.md)
+
 ## Installation before use
 
 > "Since downloading YouTube audio files requires FFmpeg as the underlying conversion package, FFmpeg needs to be installed and the environment variables need to be configured first."
