@@ -1,4 +1,5 @@
 from typing import Generator
+from tqdm import tqdm
 import openai
 
 class Summary:
@@ -19,7 +20,7 @@ class Summary:
     def get_summary(self) -> None:
         summary_list = []
         with open(self.text_filename, 'r', encoding='utf-8') as f:
-            for paragraph in self.__read_file():
+            for paragraph in tqdm(self.__read_file()):
                 completion = openai.ChatCompletion.create(
                     model = "gpt-3.5-turbo",
                     messages = [
