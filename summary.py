@@ -30,15 +30,15 @@ class Summary:
     def get_summary(self, model: 'Model' = Model.GPT3_5_0301) -> None:
         summary_list = []
         with open(self.text_filename, 'r', encoding='utf-8') as f:
-                for paragraph in tqdm(self.__read_file()):
-                    completion = openai.ChatCompletion.create(
-                    model = model.value,
-                    messages = [
-                            {"role": "system", "content": "請你成為文章摘要的小幫手，摘要以下文字，以繁體中文輸出"},
-                            {"role": "user", "content": paragraph}
-                        ]
-                    )
-                summary_list.append(completion.choices[0].message.content)
+            for paragraph in tqdm(self.__read_file()):
+                completion = openai.ChatCompletion.create(
+                model = model.value,
+                messages = [
+                        {"role": "system", "content": "請你成為文章摘要的小幫手，摘要以下文字，以繁體中文輸出"},
+                        {"role": "user", "content": paragraph}
+                    ]
+                )
+            summary_list.append(completion.choices[0].message.content)
         with open(self.summary_filename, 'w', encoding='utf-8') as f:
             for i in summary_list:
                 f.write(i + '\n')
